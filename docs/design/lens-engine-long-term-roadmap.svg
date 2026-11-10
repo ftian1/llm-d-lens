@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1600" viewBox="0 0 1700 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Lens Engine — Long-term Platform Architecture</title>
+  <desc id="desc">A long-term Lens platform architecture that expands the stable short-term core with application services, recoverable asynchronous operations, multiple interfaces, and optional platform integrations.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L9,3 L0,6 Z" fill="#475569"/></marker>
+    <style>
+      .title{font:700 30px sans-serif;fill:#0f172a}.subtitle{font:16px sans-serif;fill:#475569}.layer{font:700 17px sans-serif;fill:#0f172a}.head{font:700 18px sans-serif;fill:#0f172a}.body{font:14px sans-serif;fill:#334155}.small{font:13px sans-serif;fill:#475569}.box{stroke-width:1.5}.stable{fill:#eef2ff;stroke:#4f46e5}.core{fill:#ecfdf5;stroke:#059669}.expanded{fill:#eff6ff;stroke:#2563eb}.cap{fill:#fffbeb;stroke:#d97706}.port{fill:#ecfeff;stroke:#0891b2}.adapter{fill:#f1f5f9;stroke:#64748b}.optional{fill:#fff7ed;stroke:#f97316;stroke-dasharray:8 6}.external{fill:#fff;stroke:#94a3b8}.arrow{stroke:#475569;stroke-width:2;fill:none;marker-end:url(#arrow)}.dashed{stroke-dasharray:8 6}.label{font:700 13px sans-serif;fill:#475569}
+    </style>
+  </defs>
+  <rect width="1700" height="1600" fill="#ffffff"/>
+  <text x="55" y="55" class="title">Lens Engine — Long-term Platform Architecture</text>
+  <text x="55" y="85" class="subtitle">Multiple interfaces and recoverable operations built on the same stable lens.api and domain kernel</text>
+  <g transform="translate(1230 38)"><rect width="400" height="54" rx="10" fill="#fff" stroke="#cbd5e1"/><rect x="15" y="17" width="20" height="20" class="stable"/><text x="45" y="33" class="small">Core / Stable</text><rect x="145" y="17" width="20" height="20" class="expanded"/><text x="175" y="33" class="small">Expanded / Roadmap</text><rect x="330" y="17" width="20" height="20" class="optional"/><text x="360" y="33" class="small">Optional</text></g>
+
+  <rect x="35" y="120" width="1630" height="125" rx="14" class="box external"/>
+  <text x="60" y="150" class="layer">Interfaces / Consumers</text>
+  <g transform="translate(60 172)"><rect width="235" height="50" rx="8" class="box external"/><text x="117" y="30" text-anchor="middle" class="body">CLI / llmd</text></g>
+  <g transform="translate(320 172)"><rect width="235" height="50" rx="8" class="box external"/><text x="117" y="30" text-anchor="middle" class="body">REST</text></g>
+  <g transform="translate(580 172)"><rect width="235" height="50" rx="8" class="box external"/><text x="117" y="30" text-anchor="middle" class="body">MCP / Assistant</text></g>
+  <g transform="translate(840 172)"><rect width="235" height="50" rx="8" class="box external"/><text x="117" y="30" text-anchor="middle" class="body">In-cluster Job</text></g>
+  <g transform="translate(1100 172)"><rect width="235" height="50" rx="8" class="box external"/><text x="117" y="30" text-anchor="middle" class="body">Dashboard / CI/CD</text></g>
+  <g transform="translate(1360 172)"><rect width="235" height="50" rx="8" class="box external"/><text x="117" y="30" text-anchor="middle" class="body">Automation</text></g>
+
+  <rect x="35" y="275" width="1630" height="145" rx="14" class="box stable"/>
+  <text x="60" y="307" class="layer">lens.api — versioned public contract</text>
+  <text x="60" y="332" class="small">The same contract as the short-term architecture: Intent, Plan, Operation, InstanceStatus, result/error schemas.</text>
+  <g transform="translate(170 350)"><rect width="270" height="48" rx="8" class="box stable"/><text x="135" y="30" text-anchor="middle" class="head">Intent → Plan → Operation → InstanceStatus</text></g>
+
+  <rect x="35" y="450" width="1630" height="190" rx="14" class="box expanded"/>
+  <text x="60" y="482" class="layer">Application Services — orchestration over the same kernel</text>
+  <g transform="translate(60 510)"><rect width="275" height="82" rx="9" class="box expanded"/><text x="18" y="30" class="head">Check &amp; Plan</text><text x="18" y="55" class="body">policy, preflight, digest</text></g>
+  <g transform="translate(365 510)"><rect width="275" height="82" rx="9" class="box expanded"/><text x="18" y="30" class="head">Prepare</text><text x="18" y="55" class="body">admin parts and prerequisites</text></g>
+  <g transform="translate(670 510)"><rect width="275" height="82" rx="9" class="box expanded"/><text x="18" y="30" class="head">Standup / Teardown</text><text x="18" y="55" class="body">apply and ownership-safe removal</text></g>
+  <g transform="translate(975 510)"><rect width="275" height="82" rx="9" class="box expanded"/><text x="18" y="30" class="head">Scale &amp; Status</text><text x="18" y="55" class="body">overrides and observation</text></g>
+  <g transform="translate(1280 510)"><rect width="315" height="82" rx="9" class="box expanded"/><text x="18" y="30" class="head">Rollout &amp; Migration</text><text x="18" y="55" class="body">long-running lifecycle operations</text></g>
+
+  <rect x="35" y="670" width="1000" height="250" rx="14" class="box core"/>
+  <text x="60" y="702" class="layer">Domain Kernel — Core / Stable</text>
+  <g transform="translate(60 730)"><rect width="285" height="75" rx="9" class="box core"/><text x="18" y="28" class="head">Planning</text><text x="18" y="52" class="body">Intent → Plan, policy, digest</text></g>
+  <g transform="translate(365 730)"><rect width="285" height="75" rx="9" class="box core"/><text x="18" y="28" class="head">Lifecycle</text><text x="18" y="52" class="body">apply, teardown, ownership</text></g>
+  <g transform="translate(670 730)"><rect width="285" height="75" rx="9" class="box core"/><text x="18" y="28" class="head">Observation</text><text x="18" y="52" class="body">health, drift, workloads</text></g>
+  <text x="60" y="845" class="body">InstanceRecord · RolloutRecord · MigrationRecord · Policy · Ownership</text>
+  <text x="60" y="875" class="small">The long-term platform does not replace these models; it composes them.</text>
+
+  <rect x="1065" y="670" width="600" height="250" rx="14" class="box expanded"/>
+  <text x="1090" y="702" class="layer">Async Operation Runtime — Expanded / Roadmap</text>
+  <g transform="translate(1090 730)"><rect width="250" height="75" rx="9" class="box expanded"/><text x="18" y="28" class="head">Operation state</text><text x="18" y="52" class="body">resume · pause · abort</text></g>
+  <g transform="translate(1370 730)"><rect width="250" height="75" rx="9" class="box expanded"/><text x="18" y="28" class="head">Recovery</text><text x="18" y="52" class="body">retry · progress · events</text></g>
+  <text x="1090" y="845" class="small">Rollout/Migration use Plan + Operation + InstanceRecord/RolloutRecord.</text>
+  <text x="1090" y="875" class="small">Persistence remains behind InstanceRepository / OperationStore.</text>
+
+  <rect x="35" y="950" width="1630" height="170" rx="14" class="box cap"/>
+  <text x="60" y="982" class="layer">Capabilities — Core domain knowledge and optional profiles</text>
+  <g transform="translate(60 1010)"><rect width="260" height="70" rx="9" class="box cap"/><text x="18" y="28" class="head">Variants / Kinds</text><text x="18" y="51" class="small">guide and workload semantics</text></g>
+  <g transform="translate(345 1010)"><rect width="260" height="70" rx="9" class="box cap"/><text x="18" y="28" class="head">Checks</text><text x="18" y="51" class="small">namespace policy / preflight</text></g>
+  <g transform="translate(630 1010)"><rect width="260" height="70" rx="9" class="box cap"/><text x="18" y="28" class="head">Workflows</text><text x="18" y="51" class="small">rollout / scale / migrate</text></g>
+  <g transform="translate(915 1010)"><rect width="300" height="70" rx="9" class="box cap"/><text x="18" y="28" class="head">CapabilityProbe</text><text x="18" y="51" class="small">optional ClusterProfile facts</text></g>
+  <g transform="translate(1240 1010)"><rect width="355" height="70" rx="9" class="box optional"/><text x="18" y="28" class="head">Optional platform capabilities</text><text x="18" y="51" class="small">gateway / storage / GPU / cloud</text></g>
+
+  <rect x="35" y="1150" width="1630" height="170" rx="14" class="box port"/>
+  <text x="60" y="1182" class="layer">Ports — stable interfaces; implementations may expand</text>
+  <g transform="translate(60 1210)"><rect width="245" height="70" rx="9" class="box port"/><text x="18" y="28" class="head">ClusterAccess</text><text x="18" y="51" class="small">resources and namespace scope</text></g>
+  <g transform="translate(330 1210)"><rect width="245" height="70" rx="9" class="box port"/><text x="18" y="28" class="head">InstanceRepository</text><text x="18" y="51" class="small">authoritative inventory</text></g>
+  <g transform="translate(600 1210)"><rect width="245" height="70" rx="9" class="box port"/><text x="18" y="28" class="head">StackRenderer</text><text x="18" y="51" class="small">guide / Helm / Kustomize</text></g>
+  <g transform="translate(870 1210)"><rect width="245" height="70" rx="9" class="box port"/><text x="18" y="28" class="head">Observer / Auth / Discovery</text><text x="18" y="51" class="small">status and permissions</text></g>
+  <g transform="translate(1140 1210)"><rect width="245" height="70" rx="9" class="box port"/><text x="18" y="28" class="head">OperationStore</text><text x="18" y="51" class="small">recoverable operation state</text></g>
+  <g transform="translate(1410 1210)"><rect width="185" height="70" rx="9" class="box optional"/><text x="18" y="28" class="head">ClusterLifecycleProvider</text><text x="18" y="51" class="small">optional only</text></g>
+
+  <rect x="35" y="1350" width="1000" height="145" rx="14" class="box adapter"/>
+  <text x="60" y="1382" class="layer">Adapters — Core implementations</text>
+  <text x="60" y="1420" class="body">Kubernetes Provider · OpenShift Provider · ConfigMap / in-cluster storage</text>
+  <text x="60" y="1452" class="body">Helm · Kustomize · Git · kubectl · oc · Kubernetes REST</text>
+
+  <rect x="1065" y="1350" width="600" height="145" rx="14" class="box optional"/>
+  <text x="1090" y="1382" class="layer">Optional Platform Extensions / External Integrations</text>
+  <text x="1090" y="1420" class="body">Gateway / Storage / GPU / Cloud adapters</text>
+  <text x="1090" y="1452" class="body">Cluster provisioning and managed clusters are not Lens Core.</text>
+
+  <rect x="35" y="1520" width="1630" height="55" rx="12" fill="#fff7ed" stroke="#f97316"/>
+  <text x="60" y="1553" class="head">Evolution rule</text><text x="205" y="1553" class="body">Long-term additions compose the short-term API, kernel, capabilities, ports, and adapters; they do not create a parallel model.</text>
+
+  <path d="M177 222 V275 M437 222 V275 M697 222 V275 M957 222 V275 M1217 222 V275 M1477 222 V275" class="arrow"/>
+  <path d="M850 420 V450" class="arrow"/>
+  <path d="M500 640 V670 M1300 640 V670" class="arrow"/>
+  <path d="M820 920 V950" class="arrow"/>
+  <path d="M820 1120 V1150" class="arrow"/>
+  <path d="M500 1320 V1350 M1330 1320 V1350" class="arrow"/>
+</svg>
