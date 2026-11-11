@@ -96,7 +96,7 @@ blue-green updates, and users ask for clusters other than OpenShift and kind.
 Each of these is cheaper with a stable provider API and a reusable runtime than
 with the flat package.
 
-## 3. Goals, non-goals and anti-goals
+## 3. Goals and non-goals
 
 ### Goals
 
@@ -123,18 +123,6 @@ with the flat package.
   engine stays vendor-neutral and reads accelerator resource names from pod
   templates as it does today.
 - Choosing a REST framework for `serve`.
-
-### Anti-goals (failure even if everything works)
-
-- A runtime dependency beyond PyYAML, or an import of `llm_d_lens`, FastAPI,
-  the database layer or auth.
-- Any layer above L1 can obtain a client that writes outside the target
-  namespace without explicitly constructing an administrator session.
-- Code above L1 branches on a platform name.
-- Platform detection that needs rights persona A (namespace edit role) lacks,
-  such as reading Nodes.
-- An unknown distribution that fails instead of falling back to plain
-  Kubernetes behavior.
 
 ## 4. Terminology
 
