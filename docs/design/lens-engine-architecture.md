@@ -615,7 +615,13 @@ class WorkloadRegistry:                 # entry point group "lens.workloads"
 
 Built-in adapters: Deployment, StatefulSet, DaemonSet, Job, LeaderWorkerSet,
 DisaggregatedSet. Policy (privileged and accelerator scans), overrides, health,
-scale and rollout progress all go through the registry.
+scale and rollout progress use the registry. For template-based scans and
+overrides, preserve today's standalone Pod and ReplicaSet handling and the
+recursive traversal from `policy.pod_templates()` as an L2 fallback when
+`for_object()` returns `None`, including discovery in CronJobs and unknown
+custom resources. A missing adapter must not suppress existing safety checks,
+prerequisite checks or accelerator accounting. The fallback discovers templates
+only; it does not grant health, scale or rollout support to unregistered kinds.
 
 #### 6.2.4 Other runtime services
 
